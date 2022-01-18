@@ -1,0 +1,80 @@
+{
+    "name": "Inputs",
+    "maps": [
+        {
+            "name": "Placement",
+            "id": "7fc86b87-bd56-4d84-885b-e5c8b770508b",
+            "actions": [
+                {
+                    "name": "MainClick",
+                    "type": "Value",
+                    "id": "b880e569-6f14-4109-b785-ac3f13928129",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Rotation",
+                    "type": "Value",
+                    "id": "a7dd5673-d5f8-4186-b001-b755e21fa469",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ClickPosition",
+                    "type": "Value",
+                    "id": "b1817a42-e37a-4eb4-8556-9cfd60bd171b",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "77818175-d370-40d5-95ca-c3b545e5750e",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Hold(pressPoint=0.25)",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "MainClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ce98006b-3687-46b6-8dd2-6f58618fc305",
+                    "path": "<Pointer>/delta/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Rotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1fcb724c-0a1a-4309-821e-50cc00eaa5f7",
+                    "path": "<Pointer>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "ClickPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "PC",
+            "bindingGroup": "PC",
+            "devices": []
+        }
+    ]
+}
