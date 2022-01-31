@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[SelectionBase]
 public class Furniture : MonoBehaviour
 {
     public FurnitureState fState;
@@ -15,6 +16,7 @@ public class Furniture : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         colliding = true;
+        Debug.Log(other.gameObject.name);
     }
     private void OnTriggerExit(Collider other)
     {

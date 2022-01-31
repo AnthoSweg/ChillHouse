@@ -15,7 +15,16 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Rotation",
+                    "name": "SecondClick",
+                    "type": "Button",
+                    "id": "578ebcb6-837d-42b1-93c3-71a730f94051",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PointerDelta",
                     "type": "Value",
                     "id": "a7dd5673-d5f8-4186-b001-b755e21fa469",
                     "expectedControlType": "",
@@ -24,7 +33,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "ClickPosition",
+                    "name": "PointerPosition",
                     "type": "Value",
                     "id": "b1817a42-e37a-4eb4-8556-9cfd60bd171b",
                     "expectedControlType": "Vector2",
@@ -48,11 +57,11 @@
                 {
                     "name": "",
                     "id": "ce98006b-3687-46b6-8dd2-6f58618fc305",
-                    "path": "<Pointer>/delta/y",
+                    "path": "<Pointer>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
-                    "action": "Rotation",
+                    "action": "PointerDelta",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -63,7 +72,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
-                    "action": "ClickPosition",
+                    "action": "PointerPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ade4ce38-d551-4b37-9359-48e96cf3dcc4",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "SecondClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

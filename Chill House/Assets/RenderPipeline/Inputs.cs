@@ -37,7 +37,16 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Rotation"",
+                    ""name"": ""SecondClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""578ebcb6-837d-42b1-93c3-71a730f94051"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PointerDelta"",
                     ""type"": ""Value"",
                     ""id"": ""a7dd5673-d5f8-4186-b001-b755e21fa469"",
                     ""expectedControlType"": """",
@@ -46,7 +55,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""ClickPosition"",
+                    ""name"": ""PointerPosition"",
                     ""type"": ""Value"",
                     ""id"": ""b1817a42-e37a-4eb4-8556-9cfd60bd171b"",
                     ""expectedControlType"": ""Vector2"",
@@ -70,11 +79,11 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ce98006b-3687-46b6-8dd2-6f58618fc305"",
-                    ""path"": ""<Pointer>/delta/y"",
+                    ""path"": ""<Pointer>/delta"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PC"",
-                    ""action"": ""Rotation"",
+                    ""action"": ""PointerDelta"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -85,7 +94,18 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PC"",
-                    ""action"": ""ClickPosition"",
+                    ""action"": ""PointerPosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ade4ce38-d551-4b37-9359-48e96cf3dcc4"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""SecondClick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -103,8 +123,9 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         // Placement
         m_Placement = asset.FindActionMap("Placement", throwIfNotFound: true);
         m_Placement_MainClick = m_Placement.FindAction("MainClick", throwIfNotFound: true);
-        m_Placement_Rotation = m_Placement.FindAction("Rotation", throwIfNotFound: true);
-        m_Placement_ClickPosition = m_Placement.FindAction("ClickPosition", throwIfNotFound: true);
+        m_Placement_SecondClick = m_Placement.FindAction("SecondClick", throwIfNotFound: true);
+        m_Placement_PointerDelta = m_Placement.FindAction("PointerDelta", throwIfNotFound: true);
+        m_Placement_PointerPosition = m_Placement.FindAction("PointerPosition", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -165,15 +186,17 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Placement;
     private IPlacementActions m_PlacementActionsCallbackInterface;
     private readonly InputAction m_Placement_MainClick;
-    private readonly InputAction m_Placement_Rotation;
-    private readonly InputAction m_Placement_ClickPosition;
+    private readonly InputAction m_Placement_SecondClick;
+    private readonly InputAction m_Placement_PointerDelta;
+    private readonly InputAction m_Placement_PointerPosition;
     public struct PlacementActions
     {
         private @Inputs m_Wrapper;
         public PlacementActions(@Inputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @MainClick => m_Wrapper.m_Placement_MainClick;
-        public InputAction @Rotation => m_Wrapper.m_Placement_Rotation;
-        public InputAction @ClickPosition => m_Wrapper.m_Placement_ClickPosition;
+        public InputAction @SecondClick => m_Wrapper.m_Placement_SecondClick;
+        public InputAction @PointerDelta => m_Wrapper.m_Placement_PointerDelta;
+        public InputAction @PointerPosition => m_Wrapper.m_Placement_PointerPosition;
         public InputActionMap Get() { return m_Wrapper.m_Placement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -186,12 +209,15 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @MainClick.started -= m_Wrapper.m_PlacementActionsCallbackInterface.OnMainClick;
                 @MainClick.performed -= m_Wrapper.m_PlacementActionsCallbackInterface.OnMainClick;
                 @MainClick.canceled -= m_Wrapper.m_PlacementActionsCallbackInterface.OnMainClick;
-                @Rotation.started -= m_Wrapper.m_PlacementActionsCallbackInterface.OnRotation;
-                @Rotation.performed -= m_Wrapper.m_PlacementActionsCallbackInterface.OnRotation;
-                @Rotation.canceled -= m_Wrapper.m_PlacementActionsCallbackInterface.OnRotation;
-                @ClickPosition.started -= m_Wrapper.m_PlacementActionsCallbackInterface.OnClickPosition;
-                @ClickPosition.performed -= m_Wrapper.m_PlacementActionsCallbackInterface.OnClickPosition;
-                @ClickPosition.canceled -= m_Wrapper.m_PlacementActionsCallbackInterface.OnClickPosition;
+                @SecondClick.started -= m_Wrapper.m_PlacementActionsCallbackInterface.OnSecondClick;
+                @SecondClick.performed -= m_Wrapper.m_PlacementActionsCallbackInterface.OnSecondClick;
+                @SecondClick.canceled -= m_Wrapper.m_PlacementActionsCallbackInterface.OnSecondClick;
+                @PointerDelta.started -= m_Wrapper.m_PlacementActionsCallbackInterface.OnPointerDelta;
+                @PointerDelta.performed -= m_Wrapper.m_PlacementActionsCallbackInterface.OnPointerDelta;
+                @PointerDelta.canceled -= m_Wrapper.m_PlacementActionsCallbackInterface.OnPointerDelta;
+                @PointerPosition.started -= m_Wrapper.m_PlacementActionsCallbackInterface.OnPointerPosition;
+                @PointerPosition.performed -= m_Wrapper.m_PlacementActionsCallbackInterface.OnPointerPosition;
+                @PointerPosition.canceled -= m_Wrapper.m_PlacementActionsCallbackInterface.OnPointerPosition;
             }
             m_Wrapper.m_PlacementActionsCallbackInterface = instance;
             if (instance != null)
@@ -199,12 +225,15 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @MainClick.started += instance.OnMainClick;
                 @MainClick.performed += instance.OnMainClick;
                 @MainClick.canceled += instance.OnMainClick;
-                @Rotation.started += instance.OnRotation;
-                @Rotation.performed += instance.OnRotation;
-                @Rotation.canceled += instance.OnRotation;
-                @ClickPosition.started += instance.OnClickPosition;
-                @ClickPosition.performed += instance.OnClickPosition;
-                @ClickPosition.canceled += instance.OnClickPosition;
+                @SecondClick.started += instance.OnSecondClick;
+                @SecondClick.performed += instance.OnSecondClick;
+                @SecondClick.canceled += instance.OnSecondClick;
+                @PointerDelta.started += instance.OnPointerDelta;
+                @PointerDelta.performed += instance.OnPointerDelta;
+                @PointerDelta.canceled += instance.OnPointerDelta;
+                @PointerPosition.started += instance.OnPointerPosition;
+                @PointerPosition.performed += instance.OnPointerPosition;
+                @PointerPosition.canceled += instance.OnPointerPosition;
             }
         }
     }
@@ -221,7 +250,8 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
     public interface IPlacementActions
     {
         void OnMainClick(InputAction.CallbackContext context);
-        void OnRotation(InputAction.CallbackContext context);
-        void OnClickPosition(InputAction.CallbackContext context);
+        void OnSecondClick(InputAction.CallbackContext context);
+        void OnPointerDelta(InputAction.CallbackContext context);
+        void OnPointerPosition(InputAction.CallbackContext context);
     }
 }
