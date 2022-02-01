@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637780317112692059
-    m_Hash: 3223548248
+      ticks: 637781046913435034
+    m_Hash: 3595381077
   m_LockFileStatus:
     m_FilePath: D:/GIT/ChillHouse/Chill House/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637780317113619582
-    m_Hash: 2029982443
+      ticks: 637781046913445022
+    m_Hash: 94461528
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -3022,7 +3022,6 @@ m_PackageAssets:
         - 1.0.0
         - 1.0.5
         - 1.0.6
-        - 2.0.2
         compatible:
         - 0.1.5-preview
         - 0.1.6-preview
@@ -3030,7 +3029,6 @@ m_PackageAssets:
         - 1.0.0
         - 1.0.5
         - 1.0.6
-        - 2.0.2
         verified: 1.0.6
       dependencies: []
       resolvedDependencies: []

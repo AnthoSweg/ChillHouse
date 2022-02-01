@@ -13,7 +13,7 @@ TagManager:
   - UI
   - Furnitures
   - PlacingSurface
-  - 
+  - NoPP
   - 
   - 
   - 
@@ -40,4 +40,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: no pp
+    uniqueID: 3515864601
     locked: 0

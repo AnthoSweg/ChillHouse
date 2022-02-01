@@ -7,20 +7,26 @@ public class Furniture : MonoBehaviour
 {
     public FurnitureState fState;
     public Renderer r;
+    public Collider col;
+    private List<Collider> cols = new List<Collider>();
+    public RaycastHit surface;
     public bool IsColliding
     {
-        get { return colliding; }
+        get { return cols.Count >0; }
     }
-    private bool colliding;
+
+    private void Awake()
+    {
+        col = GetComponent<Collider>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        colliding = true;
-        Debug.Log(other.gameObject.name);
+        cols.Add(other);
     }
     private void OnTriggerExit(Collider other)
     {
-        colliding = false;
+        cols.Remove(other);
     }
 }
 
